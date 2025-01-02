@@ -2,82 +2,41 @@ import streamlit as st
 import qrcode
 from PIL import Image
 import io
-import random
-import string
-
-# Simulating a backend content storage system (replace with real backend)
-content_store = {}
-
-def generate_unique_id():
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=8))
 
 # Set page title and layout
-st.set_page_config(page_title="Notepad with QR Code Generator", layout="wide")
+st.set_page_config(page_title="Simple Notepad with QR Code Generator", layout="wide")
 
 # Title and description
-st.title("Sharelo")
-st.write("A simple text editor with the ability to generate QR codes for your content.")
+st.title("Sharelo - Simple Notepad with QR Code Generator")
+st.write("Enter your content below, and generate a QR code that can be scanned to access it.")
 
-# Text area (mimics the Notepad functionality)
-text_area = st.text_area("Write your content here:", height=450)
+# Text area for content input
+text_area = st.text_area("Write your content here:", height=200)
 
-# Buttons for functionalities
-col1, col2, col3, col4 = st.columns(4)
+# Button to generate QR code
+generate_qr_button = st.button("Generate QR Code")
 
-with col1:
-    save_button = st.button("Save Content")
-
-with col2:
-    load_button = st.file_uploader("Load Content", type=["txt"])
-
-with col3:
-    clear_button = st.button("Clear Content")
-
-with col4:
-    generate_qr_button = st.button("Generate QR Code")
-
-# Save content to a file
-if save_button and text_area:
-    with open("notepad_content.txt", "w") as file:
-        file.write(text_area)
-    st.success("Content saved as 'notepad_content.txt'!")
-
-# Load content from a file
-if load_button:
-    file_content = load_button.read().decode("utf-8")
-    st.text_area("Write your content here:", value=file_content, height=300, key="loaded_text")
-
-# Clear the text area
-if clear_button:
-    st.experimental_rerun()
-
-# Generate QR Code for the text content
+# Generate and display QR Code
 if generate_qr_button and text_area:
-    # Generate a unique ID for the content
-    unique_id = generate_unique_id()
-    content_store[unique_id] = text_area  # Simulating backend storage
-
-    # Generate a hosted URL for the content
-    hosted_url = f"https://sharelo.streamlit.app/"
-
-    # Create QR code for the URL
+    # Create a QR code with the content
     qr = qrcode.QRCode(
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
-        border=4,
+        border=4
     )
-    qr.add_data(hosted_url)
+    qr.add_data(text_area)
     qr.make(fit=True)
 
     # Create QR code image
     qr_img = qr.make_image(fill="black", back_color="white")
+    
+    # Save image to buffer
     buf = io.BytesIO()
     qr_img.save(buf)
     buf.seek(0)
 
-    # Display the QR code
-    st.image(buf, caption="Your QR Code (Scan to View Content)", width=200)
-    st.markdown(f"[View your content here]({hosted_url})")
+    # Display QR code
+    st.image(buf, caption="Your QR Code", width=300)
 
     # Provide download option for the QR code
     st.download_button(
@@ -86,5 +45,3 @@ if generate_qr_button and text_area:
         file_name="generated_qr_code.png",
         mime="image/png"
     )
-
-# Note: Replace `https://example.com/view?content_id=` with your own hosting URL.
