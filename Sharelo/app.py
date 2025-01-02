@@ -58,7 +58,7 @@ if generate_qr_button and text_area:
     content_store[unique_id] = text_area  # Simulating backend storage
 
     # Generate a hosted URL for the content
-    hosted_url = f"https://example.com/view?content_id={unique_id}"
+    hosted_url = f"https://sharelo.streamlit.app/"
 
     # Create QR code for the URL
     qr = qrcode.QRCode(
