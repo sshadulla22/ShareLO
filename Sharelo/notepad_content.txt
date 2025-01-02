@@ -1,0 +1,32 @@
+Basic Level (For Beginners)
+What is Python? List its key features. (4 marks)
+How do you declare variables in Python? Provide examples. (4 marks)
+What is the difference between list, tuple, and set in Python? (4 marks)
+Write a Python program to find the factorial of a number. (8 marks)
+Explain the use of the print() and input() functions with examples. (4 marks)
+Intermediate Level
+What are Python’s data types? Explain any four with examples. (8 marks)
+Write a Python program to check whether a given number is a palindrome. (10 marks)
+Explain the concept of list comprehension in Python with an example. (8 marks)
+What is a lambda function? Write a program to demonstrate its use. (8 marks)
+How does Python handle exceptions? Explain with an example. (8 marks)
+Advanced Level
+What is the difference between deepcopy and shallow copy in Python? Explain with code. (10 marks)
+Write a Python program to implement a stack using classes. (10 marks)
+Explain Python decorators with a code example. (10 marks)
+What are Python modules and packages? How are they different? (8 marks)
+How can multithreading be achieved in Python? Write a program to demonstrate it. (10 marks)
+Project-Based Questions
+Explain how you would create a simple calculator using Python. (8 marks)
+Write a Python program to scrape data from a website and save it to a file. (10 marks)
+How can you create a GUI application in Python? Write a program using Tkinter. (10 marks)
+What is the purpose of the os and sys modules in Python? Provide examples. (8 marks)
+Demonstrate the use of Python for data visualization using matplotlib or seaborn. (10 marks)
+Algorithm-Based Questions
+Write a Python program to implement Bubble Sort. (10 marks)
+Write a Python program to find the longest common subsequence of two strings. (10 marks)
+How can you implement the Fibonacci sequence using recursion? Write the code. (8 marks)
+Write a program to count the frequency of each word in a text file. (10 marks)
+Explain and demonstrate the use of Python for solving the Tower of Hanoi problem. (10 marks)
+Conceptual & Theory-Based Questions
+**What is Python’s Global Interpret
